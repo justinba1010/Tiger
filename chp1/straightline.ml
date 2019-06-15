@@ -73,7 +73,7 @@ let interp (statement: stm) =
         | EseqExp(_stm, _exp) -> 0 (* Unimplemented currently *)
         | IdExp(_id) -> 0 (* Unimplemented currently *)
     in interpStm(statement)
-let print_2  pairs = 
+let print_2 (pairs : pair list) = 
     List.iter
     (fun a -> 
         let (id, valu) = a in
@@ -82,5 +82,6 @@ let print_2  pairs =
         print_int valu;
         print_string ("\n")
     ) pairs
-(* let _ =print_2 (interp prog) *)
+let pairs = interp (prog)
+let _ = print_2 (pairs)
 let _ = print_2 [("v", 123); ("b", 789)]
